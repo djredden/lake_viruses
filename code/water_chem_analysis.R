@@ -30,10 +30,10 @@ data_long <- water_chem %>%
                names_to = "param",
                values_to = "value") %>% 
   mutate(param = case_when(
-    param == "al" ~ "Aluminum (&mu;g L<sup>-1</sup>)",
+    param == "al" ~ "Total Aluminum (&mu;g L<sup>-1</sup>)",
     param == "colour" ~ "Colour (Pt-Co)",
     param == "doc" ~ "DOC (mg L<sup>-1</sup>)",
-    param == "fe" ~ "Iron (&mu;g L<sup>-1</sup>)",
+    param == "fe" ~ "Total Iron (&mu;g L<sup>-1</sup>)",
     param == "field_cond" ~ "Conductivity (&mu;s cm<sup>-1</sup>)",
     param == "field_do" ~ "DO (mg L<sup>-1</sup>)",
     param == "field_ph" ~ "pH",
@@ -67,7 +67,38 @@ ggsave("output/water_chem_by_site.png", dpi = 300,
 
 # ----------------------------------------------------------- Summary Table -----------------------------------------------------------
 
-summary_long <- data_long %>% 
+summary_long <- water_chem %>% 
+  # Take means of replicates
+  rowwise() %>% 
+  mutate(
+    turbidity = mean(c(turbidity_1, turbidity_2), na.rm = TRUE),
+    colour = mean(c(colour_1, colour_2), na.rm = TRUE),
+    uv_254 = mean(c(uv_254_1, uv_254_2), na.rm = TRUE)
+  ) %>% 
+  # Remove original replicates
+  select(-matches("_(1|2)$")) %>% 
+  # Put in long format
+  pivot_longer(cols = -c(sample_id, date),
+               names_to = "param",
+               values_to = "value") %>% 
+  mutate(param = case_when(
+    param == "al" ~ "Total Aluminum (µg/L)",
+    param == "colour" ~ "Colour (Pt-Co)",
+    param == "doc" ~ "DOC (mg/L)",
+    param == "fe" ~ "Total Iron (µg/L)",
+    param == "field_cond" ~ "Conductivity (µs/cm)",
+    param == "field_do" ~ "DO (mg/L)",
+    param == "field_ph" ~ "pH",
+    param == "field_temp" ~ "Temperature (C)",
+    param == "tds"  ~ "TDS (mg/L)",
+    param == "toc" ~ "TOC (mg/L)",
+    param == "p" ~ "Total P (µg/L)",
+    param == "turbidity" ~ "Turbidity (NTU)",
+    param == "uv_254" ~ "UV254 (/cm)"),
+    sample_id = fct_recode(sample_id,
+                           "Banook 1" = "banook1",
+                           "Banook 2" = "banook2")
+  ) %>% 
   # Summarise
   group_by(param) %>% 
   summarise(Mean = mean(value, na.rm = TRUE),

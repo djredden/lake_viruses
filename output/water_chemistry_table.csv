@@ -1,14 +1,14 @@
 Parameter,Mean,SD
-Aluminum (&mu;g L<sup>-1</sup>),7.56,3.05
 Colour (Pt-Co),12.09,11.15
-Conductivity (&mu;s cm<sup>-1</sup>),825.41,91.97
-DO (mg L<sup>-1</sup>),7.64,1.16
-DOC (mg L<sup>-1</sup>),2.3,0.1
-Iron (&mu;g L<sup>-1</sup>),36.7,16.17
-TDS (mg L<sup>-1</sup>),591.13,38.98
-TOC (mg L<sup>-1</sup>),2.21,0.08
-Temperature (&deg;C),20.07,3.49
-Total P (&mu;g L<sup>-1</sup>),12.66,8.31
+Conductivity (µs/cm),825.41,91.97
+DO (mg/L),7.64,1.16
+DOC (mg/L),2.3,0.1
+TDS (mg/L),591.13,38.98
+TOC (mg/L),2.21,0.08
+Temperature (C),20.07,3.49
+Total Aluminum (µg/L),7.56,3.05
+Total Iron (µg/L),36.7,16.17
+Total P (µg/L),12.66,8.31
 Turbidity (NTU),0.98,0.74
-UV<sub>254</sub> (cm<sup>-1</sup>),0.05,0.01
+UV254 (/cm),0.05,0.01
 pH,7.47,0.38
