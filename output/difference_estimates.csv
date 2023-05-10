@@ -1,0 +1,9 @@
+target,estimate,statistic,p.value,conf.low,conf.high,method,alternative
+Influenza A,-0.5947002312992187,6,0.20489389381637854,-37.90617155511762,3.4841786038845504,Wilcoxon signed rank test with continuity correction,two.sided
+RSV,1482.3857867359775,49,0.032312911243244105,71.60948132352524,63015.531251214736,Wilcoxon signed rank test with continuity correction,two.sided
+Sars-Cov2,1.0682147420707775,6,0.8551321405847059,-145.06260228386788,88.44003909411862,Wilcoxon signed rank test with continuity correction,two.sided
+Measles,NA,0,NA,NA,NA,Wilcoxon signed rank test with continuity correction,two.sided
+Adenovirus,21.99391802859092,35,0.4755326595969013,-45.41077298435379,132.39892571631898,Wilcoxon signed rank test with continuity correction,two.sided
+Rotavirus,-5.2701613125368825,0,1,NA,NA,Wilcoxon signed rank test with continuity correction,two.sided
+Norovirus,-1415.0129628832324,17,0.5536169919657805,-4327.791794972442,2053.9744598712837,Wilcoxon signed rank test with continuity correction,two.sided
+Enterovirus,-8.42141614893343,18,0.6355861222787667,-48207.30701969632,28.414795889831236,Wilcoxon signed rank test with continuity correction,two.sided

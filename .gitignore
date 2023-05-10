@@ -49,10 +49,8 @@ po/*~
 rsconnect/
 
 # Data files
-/raw_data
+/raw_data/superceded
 
-# Cleaned data
-/cleaned_data
+# Exploratory 
+/exploratory
 
-# Output
-/output
