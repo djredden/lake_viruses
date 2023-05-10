@@ -27,6 +27,8 @@ n_events <- data_cleaned %>%
   ) %>% 
   distinct(sample_id, adsorbent, n)
 
+write_csv(n_events, "output/number_sample_events.csv")
+
 # ------------------------------------------------------- Wilcoxon matched pairs -------------------------------------------------------
 
 # Using wilcox.test function
