@@ -44,8 +44,8 @@ data_long <- water_chem %>%
     param == "turbidity" ~ "Turbidity (NTU)",
     param == "uv_254" ~ "UV<sub>254</sub> (cm<sup>-1</sup>)"),
   sample_id = fct_recode(sample_id,
-                         "Banook 1" = "banook1",
-                         "Banook 2" = "banook2")
+                         "Site 1" = "banook1",
+                         "Site 2" = "banook2")
   ) 
   
   
@@ -96,13 +96,16 @@ summary_long <- water_chem %>%
     param == "turbidity" ~ "Turbidity (NTU)",
     param == "uv_254" ~ "UV254 (/cm)"),
     sample_id = fct_recode(sample_id,
-                           "Banook 1" = "banook1",
-                           "Banook 2" = "banook2")
+                           "Site 1" = "banook1",
+                           "Site 2" = "banook2")
   ) %>% 
   # Summarise
   group_by(param) %>% 
-  summarise(Mean = mean(value, na.rm = TRUE),
-            SD = sd(value, na.rm = TRUE)) %>% 
+  summarise(
+    Min = min(value, na.rm = TRUE),
+    Median = median(value, na.rm = TRUE),
+    SD = sd(value, na.rm = TRUE),
+    Max = max(value, na.rm = TRUE)) %>% 
   mutate(
     across(where(is.numeric),
            ~round(.x, 2)) 

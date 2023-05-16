@@ -1,0 +1,17 @@
+target,adsorbent,n,n_det,freq_detect
+Adenovirus,GAC,20,16,80
+Adenovirus,Grab,33,0,0
+Enterovirus,GAC,20,10,50
+Enterovirus,Grab,33,0,0
+Influenza A,GAC,20,8,40
+Influenza A,Grab,33,0,0
+Measles,GAC,20,0,0
+Measles,Grab,33,0,0
+Norovirus,GAC,20,11,55
+Norovirus,Grab,33,0,0
+RSV,GAC,20,12,60
+RSV,Grab,33,1,3
+Rotavirus,GAC,20,1,5
+Rotavirus,Grab,33,0,0
+SARS-CoV-2,GAC,20,4,20
+SARS-CoV-2,Grab,33,0,0

@@ -45,7 +45,7 @@ paired_wilcoxon <- data_cleaned %>%
   ) %>% 
   group_by(target) %>% 
   nest() %>% 
-  mutate(model = map(data, ~wilcox.test(.$`Banook 1`, .$`Banook 2`, paired = TRUE, conf.int = TRUE)),
+  mutate(model = map(data, ~wilcox.test(.$`Site 1`, .$`Site 2`, paired = TRUE, conf.int = TRUE)),
          tidy = map(model, broom::glance)) %>% 
   unnest(tidy) %>% 
   select(-c(data, model))
@@ -60,3 +60,20 @@ difference_plot <- data_cleaned %>%
   ggplot(aes(sample_id, gu_lysate)) +
   geom_boxplot() +
   facet_wrap(vars(target), scales = "free_y")
+
+
+#  ----------------------------------------- Summary stats of concentrations -----------------------------------------
+
+conc_summary <- data_cleaned %>% 
+  filter(adsorbent == "GAC") %>% 
+  group_by(target) %>% 
+  summarise(
+    min = min(gu_total, na.rm = TRUE),
+    median = median(gu_total, na.rm = TRUE),
+    max = max(gu_total, na.rm = TRUE)
+   )
+
+write_csv(conc_summary, "output/concentration_summary.csv")
+
+
+

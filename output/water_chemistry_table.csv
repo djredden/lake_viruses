@@ -1,14 +1,14 @@
-Parameter,Mean,SD
-Colour (Pt-Co),12.09,11.15
-Conductivity (µs/cm),825.41,91.97
-DO (mg/L),7.64,1.16
-DOC (mg/L),2.3,0.1
-TDS (mg/L),591.13,38.98
-TOC (mg/L),2.21,0.08
-Temperature (C),20.07,3.49
-Total Aluminum (µg/L),7.56,3.05
-Total Iron (µg/L),36.7,16.17
-Total P (µg/L),12.66,8.31
-Turbidity (NTU),0.98,0.74
-UV254 (/cm),0.05,0.01
-pH,7.47,0.38
+Parameter,Min,Median,SD,Max
+Colour (Pt-Co),0.5,10,11.15,47.5
+Conductivity (Âµs/cm),617,844,91.97,937
+DO (mg/L),5.17,7.65,1.16,10.12
+DOC (mg/L),2.18,2.26,0.1,2.5
+TDS (mg/L),489.5,597.5,38.98,645
+TOC (mg/L),2.1,2.21,0.08,2.35
+Temperature (C),14.1,19.75,3.49,25
+Total Aluminum (Âµg/L),3.23,7.04,3.05,15.62
+Total Iron (Âµg/L),10.46,37.65,16.17,78.66
+Total P (Âµg/L),6.41,8.64,8.31,33.36
+Turbidity (NTU),0.07,0.76,0.74,3.68
+UV254 (/cm),0.02,0.05,0.01,0.06
+pH,5.73,7.5,0.38,7.93
