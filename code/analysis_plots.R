@@ -1,7 +1,7 @@
 rm(list = ls())
 library(tidyverse)
+library(scales)
 library(ggtext)
-library(glue)
 
 theme_set(theme_bw() +
             theme(
@@ -38,13 +38,18 @@ time_series <- data_cleaned %>%
          adsorbent == "GAC",
          extraction == "tween_bead") %>% 
   left_join(., det_freq, by = c("target","adsorbent")) %>% 
-  #mutate(target = glue("{target} <br> <span style='font-size: 11pt'> ({freq_detect}% Positive Detections) </span>")) %>% 
   ggplot(aes(sample_date, gu_total, color = sample_id)) +
   geom_point(size = 3) +
   facet_wrap(vars(target)) +
   scale_color_manual(values = c("#0073C2FF", "darkgrey")) +
-  scale_y_continuous(trans ='log10') +
-  labs(y = "Total Gene Copies (GU)",
+  
+  scale_y_log10(
+    breaks = trans_breaks("log10", function(x) 10^x),
+    labels = trans_format("log10", math_format(10^.x))) +
+
+  #scale_y_continuous(trans ='log10', labels = math_format()) +
+
+  labs(y = "Total Gene Copies (GC)",
        x = NULL,
        color = NULL) +
   theme(axis.title.y = element_markdown(margin = margin(t = 0, r = 12, b = 0, l = 0)),

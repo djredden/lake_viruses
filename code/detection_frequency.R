@@ -34,10 +34,10 @@ write_csv(n_events, "output/number_sample_events.csv")
 # Using wilcox.test function
 paired_wilcoxon <- data_cleaned %>%
   filter(adsorbent == "GAC") %>% 
-  select(target, sample_date, sample_id, gu_lysate) %>% 
+  select(target, sample_date, sample_id, gu_total) %>% 
   pivot_wider(id_cols = c(target, sample_date),
               names_from = sample_id,
-              values_from = gu_lysate) %>% 
+              values_from = gu_total) %>% 
   mutate(
     across(
       where(is.numeric),
@@ -56,8 +56,8 @@ write_csv(paired_wilcoxon, "output/difference_estimates.csv")
 
 difference_plot <- data_cleaned %>%
   filter(adsorbent == "GAC") %>% 
-  select(target, sample_date, sample_id, gu_lysate) %>% 
-  ggplot(aes(sample_id, gu_lysate)) +
+  select(target, sample_date, sample_id, gu_total) %>% 
+  ggplot(aes(sample_id, gu_total)) +
   geom_boxplot() +
   facet_wrap(vars(target), scales = "free_y")
 

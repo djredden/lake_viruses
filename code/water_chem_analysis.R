@@ -2,8 +2,6 @@ rm(list = ls())
 library(tidyverse)
 library(janitor)
 library(ggtext)
-library(kableExtra)
-
 
 water_chem <- read_csv("raw_data/water_chemistry.csv") %>% 
   clean_names() %>% 
