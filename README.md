@@ -1,2 +1,2 @@
 # lake_viruses
- Repository to accompany "Viruses in Freshwater Ecosystems: Occurrence and fate in recreational lakes and drinking water sources"
+ Repository to accompany "Enhanced detection of viruses for improved water safety"
